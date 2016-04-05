@@ -1,0 +1,9 @@
+<div class="panel panel-primary">
+  <div class="panel-heading text-center">New Items</div>
+  <div class="panel-body">
+    <div ng-repeat="item in items | orderBy:'published':true | limitTo:10" class="row">
+      <div class="col-md-3">{{item.published | date:'MMM d'}}</div>
+      <div class="col-md-9"><a href="/items/{{item._id}}">{{item.title}}</a></div>
+    </div>
+  </div>
+</div>

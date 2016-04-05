@@ -13,25 +13,31 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 
   $routeProvider
-  .when('/', { templateUrl: '/partials/main/main',
+  .when('/', { 
+    templateUrl: '/partials/main/main',
     controller: 'mvMainCtrl'
   })
-  .when('/admin/users', { templateUrl: '/partials/admin/user-list',
+  .when('/admin/users', {
+    templateUrl: '/partials/admin/user-list',
     controller: 'mvUserListCtrl', 
     resolve: routeRoleChecks.admin
   })
-  .when('/signup', { templateUrl: '/partials/account/signup',
+  .when('/signup', {
+    templateUrl: '/partials/account/signup',
     controller: 'mvSignupCtrl'
   })
-  .when('/profile', { templateUrl: '/partials/account/profile',
-      controller: 'mvProfileCtrl',
-      resolve: routeRoleChecks.user
+  .when('/profile', {
+    templateUrl: '/partials/account/profile',
+    controller: 'mvProfileCtrl',
+    resolve: routeRoleChecks.user
   })
-  .when('/items', { templateUrl: '/partials/items/item-list',
-      controller: 'mvItemListCtrl'
+  .when('/items', {
+    templateUrl: '/partials/items/item-list',
+    controller: 'mvItemListCtrl'
   })
-  .when('/items/:id', { templateUrl: '/partials/items/item-details',
-      controller: 'mvItemDetailCtrl'
+  .when('/items/:id', {
+    templateUrl: '/partials/items/item-details',
+    controller: 'mvItemDetailCtrl'
   });
 
 });

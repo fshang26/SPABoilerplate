@@ -13,7 +13,9 @@ module.exports = function(app) {
     app.get('/api/items/:id', items.getItemById);
   
   app.get('/partials/*', function(req, res) {
-    res.render('../../public/app/' + req.params[0]);
+    res.render('../../public/app/' + req.params[0], {
+      title: 'ejs'
+    });
   });
 
   app.post('/login', auth.authenticate);
@@ -28,7 +30,8 @@ module.exports = function(app) {
   });
 
   app.get('*', function(req, res) {
-    res.render('index', {
+    res.render('../index', {
+      title: 'ejs',
       bootstrappedUser: req.user
     });
   });

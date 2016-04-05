@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <title>SPABoilerplate</title>
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"  />
+    <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/vendor/toastr/toastr.css" />
+    <link rel="stylesheet" type="text/css" href="/css/site.css" />
+  </head>
+  <body ng-app='app'>
+    <script type="text/javascript" src="/vendor/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/vendor/toastr/toastr.js"></script>
+    <script type="text/javascript" src="/vendor/angular/angular.js"></script>
+    <script type="text/javascript" src="/vendor/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="/vendor/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="/app/app.js"></script>
+    <script type="text/javascript" src="/app/main/mvMainCtrl.js"></script>
+    <script type="text/javascript" src="/app/account/mvNavBarLoginCtrl.js"></script>
+    <script type="text/javascript" src="/app/account/mvIdentity.js"></script>
+    <script type="text/javascript" src="/app/common/mvNotifier.js"></script>
+    <script type="text/javascript" src="/app/account/mvAuth.js"></script>
+    <script type="text/javascript" src="/app/account/mvUser.js"></script>
+    <script type="text/javascript" src="/app/account/mvSignupCtrl.js"></script>
+    <script type="text/javascript" src="/app/account/mvProfileCtrl.js"></script>
+    <script type="text/javascript" src="/app/admin/mvUserListCtrl.js"></script>
+    <script type="text/javascript" src="/app/items/mvItemListCtrl.js"></script>
+    <script type="text/javascript" src="/app/items/mvItem.js"></script>
+    <script type="text/javascript" src="/app/items/mvCachedItems.js"></script>
+    <script type="text/javascript" src="/app/items/mvItemDetailCtrl.js"></script>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header"><a href="/" class="navbar-brand">SPABoilerplate
+            <h6>- Boilerplate for Single Page Application</h6></a></div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/items">Items</a></li>
+          </ul>
+          <div ng-include="'/partials/account/navbar-login.html'"></div>
+        </div>
+      </div>
+    </div>
+    <section class="content">
+      <div ng-view="ng-view"></div>
+    </section>
+    <footer class="container text-center">
+      <p>&copy; 2014 SPABoilerplate Inc.</p>
+    </footer>
+  </body>
+</html>

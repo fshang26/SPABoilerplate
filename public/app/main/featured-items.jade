@@ -1,6 +1,0 @@
-.panel.panel-primary
-  .panel-heading.text-center Featured Items
-  .panel-body
-    .row(ng-repeat="item in items | filter:{featured:true}")
-      .col-md-12
-        a(href="/items/{{item._id}}") {{item.title}}
