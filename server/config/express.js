@@ -1,16 +1,11 @@
 var express = require('express'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
-    stylus = require('stylus'),
     cookieParser = require('cookie-parser'),
     session = require('express-session'),
     passport = require('passport');
 
 module.exports = function(app, config) {
-  function compile(str, path) {
-    return stylus(str).set('filename', path);
-  }
-
   app.set('views', config.rootPath + '/public/app');
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
@@ -21,9 +16,5 @@ module.exports = function(app, config) {
   app.use(session({secret: 'spaboilerplate mean stack'}));
   app.use(passport.initialize());
   app.use(passport.session());
-  app.use(stylus.middleware({
-      src: config.rootPath + '/public',
-      compile: compile
-  }));
   app.use(express.static(config.rootPath + '/public'));
 }
