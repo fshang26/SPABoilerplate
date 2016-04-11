@@ -15,9 +15,8 @@ gulp.task('setEnv', function() {
 gulp.task('nodemon', function(cb) {
   var called = false;
   return nodemon({
-    script: 'server.js',
+    script: 'server.js'
     //, env: { 'NODE_ENV': 'development' }
-    tasks: ['watch']
   }).on('start', function() {
     if (!called) {
       called = true;
@@ -37,13 +36,14 @@ gulp.task('browser-sync', ['nodemon'], function() {
 gulp.task('less', function () {
   return gulp.src('public/less/*.less')
     .pipe(less())
-    .pipe(gulp.dest('public/css/')); // the last backslash is important!
+    .pipe(gulp.dest('public/css/'))  // the last backslash is important!
+    .pipe(browserSync.reload({stream:true}));
 });
 
 gulp.task('watch', function() {
   gulp.watch('public/less/*.less', ['less']);  // Watch all the .less files, then run the less task
 });
 
-gulp.task('dev', ['setEnv', 'browser-sync'], function () {
+gulp.task('dev', ['setEnv', 'browser-sync', 'watch'], function () {
 
 })
